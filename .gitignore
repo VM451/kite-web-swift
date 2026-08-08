@@ -7,8 +7,12 @@ Package.resolved
 # Xcode
 *.xcodeproj
 *.xcworkspace
-xcuserdata/
+userdata/
 DerivedData/
+
+# Agent Context & Protocols
+context/
+AGENTS.md
 
 # OS artifacts
 .DS_Store
