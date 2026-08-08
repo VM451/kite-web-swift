@@ -5,6 +5,8 @@ import KiteWebSwiftDSL
 import Darwin
 #elseif canImport(Glibc)
 import Glibc
+#elseif canImport(Musl)
+import Musl
 #endif
 
 /// KiteApp: The unified application server instance
@@ -132,15 +134,25 @@ public final class KiteApp: @unchecked Sendable {
     public func start(host: String = "0.0.0.0", port: Int = 3000) async throws {
         print("🚀 [kite-web-swift] Server starting on http://\(host == "0.0.0.0" ? "localhost" : host):\(port)")
 
-        #if canImport(Darwin) || canImport(Glibc)
-        let sock = socket(AF_INET, SOCK_STREAM, 0)
+        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl)
+        #if canImport(Darwin)
+        let sockStream = SOCK_STREAM
+        let solSocket = SOL_SOCKET
+        let soReuseAddr = SO_REUSEADDR
+        #else
+        let sockStream: Int32 = 1
+        let solSocket: Int32 = 1
+        let soReuseAddr: Int32 = 2
+        #endif
+
+        let sock = socket(AF_INET, sockStream, 0)
         guard sock >= 0 else {
             throw ServerError.socketCreationFailed
         }
         self.serverSocket = sock
 
         var opt: Int32 = 1
-        setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &opt, socklen_t(MemoryLayout<Int32>.size))
+        setsockopt(sock, solSocket, soReuseAddr, &opt, socklen_t(MemoryLayout<Int32>.size))
 
         var addr = sockaddr_in()
         addr.sin_family = sa_family_t(AF_INET)
