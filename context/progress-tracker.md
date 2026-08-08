@@ -29,3 +29,11 @@
 * **Context Auto-Updated:** `context/project-overview.md`, `context/architecture.md`, `context/build-plan.md`, `context/code-standards.md`, `context/library-docs.md`, `context/ui-tokens.md`, `context/ui-rules.md`, `context/ui-registry.md`, `context/progress-tracker.md`
 * **Files Touched:** `Package.swift`, `Sources/*`, `Templates/*`, `Examples/*`, `Docs/*`, `Tests/*`, `Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml`, `README.md`
 * **Key Decisions:** Enforced complete Sendable conformance and actor-isolation across all RPC handlers and state containers. Verified 21/21 tests passing with zero errors.
+
+### [Session Log] 2026-08-09 - Competitor Matrix Table in README
+* **Status:** Completed
+* **Summary:** Added a 5-column, 16-row competitor feature matrix to README.md comparing kite-web-swift with Next.js, Astro, and Leptos/Axum using ✅/❌/⚠️ indicators and pushed to GitHub remote.
+* **Context Auto-Updated:** `context/progress-tracker.md`
+* **Files Touched:** `README.md`
+* **Key Decisions:** Structured comparison across 16 core dimensions including type safety, data-race concurrency, micro-WASM payload, cold-boot overhead, signals vs VDOM, hardware thread scaling, single toolchain, and container footprints.
+
