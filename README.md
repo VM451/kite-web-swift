@@ -24,6 +24,29 @@
 
 ---
 
+## 🥊 Competitor Feature Matrix
+
+| Feature / Capability | kite-web-swift (Swift 6) | Next.js 15 (React) | Astro 5 (JS/Multi) | Leptos / Axum (Rust) |
+| :--- | :---: | :---: | :---: | :---: |
+| **End-to-End Nominal Type Safety** | ✅ Compile-Time | ❌ Erased Runtime JS | ❌ Erased Runtime JS | ✅ Compile-Time |
+| **Compiler Data-Race Concurrency** | ✅ Swift 6 Strict | ❌ Single Thread Loop | ❌ Single Thread Loop | ✅ Rust Borrow Checker |
+| **Zero Serialization Glue (Zod/tRPC)**| ✅ Native RPC Bus | ❌ Requires Schemas | ❌ Requires Schemas | ⚠️ Serde Glue |
+| **Micro-WASM Client Payload (<40KB)**| ✅ Embedded Swift | ❌ Heavy JS (>120KB) | ⚠️ Partial (>45KB) | ⚠️ (>65KB) |
+| **0ms Cold Boot / V8 Engine Tax** | ✅ Native AOT | ❌ Heavy V8 Runtime | ❌ Node/V8 Runtime | ✅ Native AOT |
+| **Direct Fine-Grained DOM Signals** | ✅ No Virtual DOM | ❌ Virtual DOM Tax | ⚠️ Island Dependent | ✅ Fine-Grained Signals |
+| **Instant Server-Side Rendering (SSR)**| ✅ Native Streaming | ⚠️ Slow JIT SSR | ✅ Fast Static SSR | ✅ Native Streaming |
+| **Islands Architecture Hydration** | ✅ Built-in `<kite-island>` | ❌ Full-Page Hydration | ✅ Built-in Islands | ⚠️ Manual Hydration |
+| **True Multi-Core Hardware Scaling** | ✅ Native Threads/Actors | ❌ Single-Threaded Event | ❌ Single-Threaded Event | ✅ Native Multi-Threading |
+| **Single Toolchain (Zero Config Hell)** | ✅ 1 CLI (`kite-web-swift`)| ❌ Webpack/Vite/Babel | ❌ Complex Multi-Syntax | ⚠️ Cargo + Trunk + Wasm |
+| **Zero `node_modules` Bloat (GBs)** | ✅ Clean SPM Packages | ❌ Hundreds of MBs | ❌ Hundreds of MBs | ✅ Cargo Crates |
+| **Macro-Generated `@ServerAction` RPC**| ✅ Built-in Swift Macros | ⚠️ `"use server"` Glue | ❌ Manual Endpoints | ❌ Manual REST/RPC |
+| **Progressive Enhancement Fallback** | ✅ Instant HTML SSR | ⚠️ JS Dependent | ✅ HTML First | ⚠️ WASM Required |
+| **Ultra-Lean Production Image (<25MB)**| ✅ Distroless Native | ❌ Heavy Node Image | ❌ Heavy Node Image | ✅ Distroless Native |
+| **Ergonomic DX (No Borrow Checker Pain)**| ✅ Swift Value Semantics | ✅ Ergonomic | ⚠️ Multi-Language | ❌ Steep Borrow Checker |
+| **Universal 100% Browser Compatibility**| ✅ All HTML5/Wasm Devices | ✅ Browser Compatible | ✅ Browser Compatible | ✅ Browser Compatible |
+
+---
+
 ## 📦 Monorepo Structure
 
 ```text
